@@ -53,7 +53,7 @@ pub(crate) enum Label {
     Literal(u16),
     #[regex("R([0-9]|1[0-5])", |lex| lex.slice().to_owned())]
     Predefined(String),
-    #[regex("[a-zA-Z][a-zA-Z0-9_.$]*", |lex| lex.slice().to_owned())]
+    #[regex("[a-zA-Z][a-zA-Z0-9_.$:]*", |lex| lex.slice().to_owned())]
     Label(String),
 }
 
