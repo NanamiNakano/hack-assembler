@@ -145,11 +145,11 @@ impl From<&str> for CInstrComp {
             "A+1" | "M+1" => Self::AMAddOne,
             "D-1" => Self::DSubOne,
             "A-1" | "M-1" => Self::AMSubOne,
-            "D+A" | "D+M" => Self::DAddAM,
+            "D+A" | "D+M" | "A+D" | "M+D" => Self::DAddAM,
             "D-A" | "D-M" => Self::DSubAM,
             "A-D" | "M-D" => Self::AMSubD,
-            "D&A" | "D&M" => Self::DAndAM,
-            "D|A" | "D|M" => Self::DOrAM,
+            "D&A" | "D&M" | "A&D" | "M&D" => Self::DAndAM,
+            "D|A" | "D|M" | "A|D" | "M|D" => Self::DOrAM,
             _ => unreachable!(),
         }
     }

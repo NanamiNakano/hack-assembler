@@ -74,6 +74,9 @@ fn main() -> Result<(), Error> {
             })?;
             match &token {
                 Token::LParen(Label::Label(label)) => {
+                    if symbol_table.get(label).is_some() {
+                        whatever!("{} is defined multiple times", label);
+                    }
                     symbol_table.insert(label.to_owned(), program.len() as u16);
                     continue 'line;
                 }
